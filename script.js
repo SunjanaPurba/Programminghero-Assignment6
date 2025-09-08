@@ -80,6 +80,7 @@ const addToCart = (button) => {
     cart.push({ name: treeName, price: treePrice });
     totalPrice += treePrice;
     updateCart();
+    alert('🌱 Tree added to cart!');
 }
 
 // update cart display--------
@@ -87,10 +88,11 @@ const updateCart = () => {
     cartList.innerHTML = '';
     cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.className = 'flex justify-between items-center bg-green-200 px-2 py-1 rounded';
+        li.className = 'flex justify-between items-center gap-22 text-black font-semibold bg-green-200 px-2 py-1 rounded';
         li.innerHTML = `
-            <span>${item.name} <span class="text-black">৳${item.price}</span></span>
-            <button class="text-gray-700" onclick="removeFromCart(${index})">×</button>
+            <span>${item.name} 
+            <span class="text-black">৳${item.price}</span></span>
+            <button class="text-gray-700" onclick="removeFromCart(${index})">❌</button>
         `;
         cartList.appendChild(li);
     });
@@ -113,4 +115,27 @@ categoriesList.addEventListener('click', e => {
         highlightActiveCategory(e.target);
     }
 });
+
+const fetchTreeDetails = async (id) => {
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+        .then(response => response.json())
+        .then(data => {
+            const tree = data.plant; // Assuming the data structure based on your provided API
+            showTreeDetails(tree);
+        });
+};
+
+// Show tree details in modal
+const showTreeDetails = (tree) => {
+    document.getElementById('modal-tree-name').innerText = tree.name;
+    document.getElementById('modal-tree-image').src = tree.image;
+    document.getElementById('modal-tree-category').innerText = tree.category;
+    document.getElementById('modal-tree-price').innerText = `৳${tree.price}`;
+    document.getElementById('modal-tree-description').innerText = tree.description;
+    document.getElementById('tree-modal').showModal(); // Show the modal
+};
+// Close the modal
+const closeModal = () => {
+    document.getElementById('tree-modal').close(); // Close the modal
+};
 
