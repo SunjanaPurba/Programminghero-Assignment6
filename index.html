@@ -17,12 +17,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-    </style>
   </head>
   <body class="bg-base-100 text-base-content">
 
@@ -75,29 +69,38 @@
     </section>
 
 <!-- choose your tree------------------------------------------- -->
-    <section class="p-5">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap 4">
-        <div class="bg-white rounded-lg shadow p-4">
-          <h1 class="text-2xl font-bold mb-4">Categories</h1>
-          <div id="categories-list" class="flex flex-col space-y-2"></div>
-        </div>
-        <div class="bg-white rounded-lg shadow p-4">
-          <h1 class="text-2xl font-bold mb-4">Choose Your Trees</h1>
-          <div id="trees-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
-        </div>
-        <div class="bg-white rounded-lg shadow p-4">
-          <h1 class="text-xl font-bold mb-4">Your Cart</h1>
-          <ul id="cart-list" class="space-y-2"></ul>
-          <div class="flex justify-between">
-            <span>Total:</span>
-            <span id="total-price">$0</span>
-            <button id="clear-button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">Clear</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  
+<<header class=" bg-green-600 md:text-center">
+     <h1 class="text-3xl font-bold text-center text-white">Tree Details</h1>
+     <p class="text-lg text-white text-center">Discover the power of trees and join our campaign to save the planet</p>
+</header>   
+<section class="p-4 md:p-5 flex flex-col md:flex-row gap-6 bg-green-50" id="tree-section">
+    <div class="w-full md:w-1/5 mb-6 md:mb-0">
+        <h2 class="text-2xl font-bold mb-4">Categories</h2>
+        <div id="categories-list" class="flex flex-col space-y-2"></div>
+    </div>
+    
+    <!-- Trees section -->
+    <div class="w-full md:w-3/5 mb-6 md:mb-0">
+        <h2 class="text-2xl font-bold mb-4 text-center">Choose Your Trees</h2>
+        <div id="tree-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+    
+    <!-- Cart section -->
+    <div class="w-full md:w-1/5 flex flex-col gap-6 h-full mt-0 md:mt-0">
+      <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+        <section class="h-full bg-white rounded-lg shadow-2xl p-6 md:p-8" 
+        style="min-height: 500px; position: relative; z-index: 10;">
+            <div>
+                <h2 class="text-2xl font-bold mb-4">Total Cart</h2>
+                <ul id="cart-list" class="space-y-4"></ul>
+                <div class="flex justify-between items-center mt-6 border-t pt-4">
+                    <span class="font-bold text-lg">Total:</span>
+                    <span id="total-price" class="font-bold text-lg">৳0</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
 
     <!-- about---- -->
     <section class="py-16 bg-green-50" id="about">
