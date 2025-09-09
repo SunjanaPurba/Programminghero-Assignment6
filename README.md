@@ -1,10 +1,8 @@
-#### Create a README file to answer the following question-
 
--
 #### 1) What is the difference between var, let, and const?
-- **var**--: The var keyword is used to declare a variable that can be updated and redeclared.variable declared with `var` are hoisted and initialized with undefined.
-- **let**--: The let keyword is used to declare a block-scoped variable that can be updated but not redeclared. It is initialized with undefined.
-- **const**--: The const keyword is used to declare a block-scoped variable that cannot be updated or redeclared. Objects declared with `const` are also immutable.
+- **var**: The var keyword is used to declare a variable that can be updated and redeclared.variable declared with var are hoisted and initialized with undefined.
+- **let**: The let keyword is used to declare a block-scoped variable that can be updated but not redeclared. It is initialized with undefined.
+- **const**: The const keyword is used to declare a block-scoped variable that cannot be updated or redeclared. Objects declared with const are also immutable.
 ---
 
 #### 2) What is the difference between map(), forEach(), and filter()? 
