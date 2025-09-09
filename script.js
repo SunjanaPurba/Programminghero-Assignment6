@@ -4,6 +4,8 @@ const cartList = document.getElementById('cart-list');
 const totalPriceSpan = document.getElementById('total-price');
 let cart = [];
 let totalPrice = 0;
+
+// --------------------------------loading Spinner----------------------------------------------
 const showSpinner = () => {
   document.getElementById('loading-spinner').classList.remove('hidden');
 };
@@ -59,6 +61,7 @@ const displayTrees = (trees) => {
     <div id="loading-spinner" class="col-span-full flex justify-center items-center py-10 hidden">
       <span class="loading loading-dots loading-lg text-green-700"></span>
     </div>
+
   `; // ------------------ spinner--------------------------
 
   if (!trees || trees.length === 0) {
