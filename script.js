@@ -18,7 +18,6 @@ const loadCategories = () => {
         .then(response => response.json())
         .then(data => displayCategories(data.categories));
 };
-
 const displayCategories = (categories) => {
     categories.forEach(category => {
         const button = document.createElement('button');
@@ -35,13 +34,11 @@ const highlightActiveCategory = (selectedButton) => {
     [...categoriesList.children].forEach(btn => btn.classList.remove('bg-green-600', 'text-white'));
     selectedButton.classList.add('bg-green-600', 'text-white');
 };
-
 const fetchTrees = (id) => {
     fetch(`https://openapi.programming-hero.com/api/category/${id}`)
         .then(response => response.json())
         .then(data => displayTrees(data.plants));
 };
-
 const fetchAllTrees = () => {
     fetch('https://openapi.programming-hero.com/api/plants')
         .then(response => response.json())
@@ -72,24 +69,24 @@ const displayTrees = (trees) => {
         card.onclick = () => showTreeDetails(tree);
     });
 };
-
 // add to cart--------
 const addToCart = (button) => {
     const treeName = button.getAttribute('data-name');
     const treePrice = parseFloat(button.getAttribute('data-price'));
-    cart.push({ name: treeName, price: treePrice });
+    const treeImage = button.parentElement.querySelector('img').src;
+    cart.push({ name: treeName, price: treePrice,  image: treeImage });
     totalPrice += treePrice;
     updateCart();
     alert('🌱 Tree added to cart!');
 }
-
 // update cart display--------
 const updateCart = () => {
     cartList.innerHTML = '';
     cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.className = 'flex justify-between items-center gap-22 text-black font-semibold bg-green-200 px-2 py-1 rounded';
+        li.className = 'flex justify-between items-center text-black font-semibold gap-6 bg-green-200 px-2 py-1 rounded';
         li.innerHTML = `
+            <img src="${item.image}" alt="" class="w-10 h-8 object-cover rounded" />
             <span>${item.name} 
             <span class="text-black">৳${item.price}</span></span>
             <button class="text-gray-700" onclick="removeFromCart(${index})">❌</button>
@@ -115,16 +112,14 @@ categoriesList.addEventListener('click', e => {
         highlightActiveCategory(e.target);
     }
 });
-
 const fetchTreeDetails = async (id) => {
     fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
         .then(response => response.json())
         .then(data => {
-            const tree = data.plant; // Assuming the data structure based on your provided API
+            const tree = data.plant;
             showTreeDetails(tree);
         });
 };
-
 // Show tree details in modal
 const showTreeDetails = (tree) => {
     document.getElementById('modal-tree-name').innerText = tree.name;
@@ -132,10 +127,10 @@ const showTreeDetails = (tree) => {
     document.getElementById('modal-tree-category').innerText = tree.category;
     document.getElementById('modal-tree-price').innerText = `৳${tree.price}`;
     document.getElementById('modal-tree-description').innerText = tree.description;
-    document.getElementById('tree-modal').showModal(); // Show the modal
+    document.getElementById('tree-modal').showModal();
 };
 // Close the modal
 const closeModal = () => {
-    document.getElementById('tree-modal').close(); // Close the modal
+    document.getElementById('tree-modal').close(); 
 };
 
