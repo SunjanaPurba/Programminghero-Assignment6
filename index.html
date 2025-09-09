@@ -19,7 +19,6 @@
     />
   </head>
   <body class="bg-base-100 text-base-content">
-
     <!-- navbar------>
   <div class="navbar bg-base-100 bg-green-700 shadow-sm">
   <div class="navbar-start">
@@ -72,6 +71,7 @@
      <p class="text-lg text-white text-center">Discover the power of trees and join our campaign to save the planet</p>
 </header>   
 <section class="p-4 md:p-5 flex flex-col md:flex-row gap-6 bg-green-50" id="tree-section">
+    
     <div class="w-full md:w-1/5 mb-6 md:mb-0">
         <h2 class="text-2xl font-bold mb-4">Categories 📄</h2>
         <div id="categories-list" class="flex flex-col space-y-2"></div>
@@ -80,7 +80,11 @@
     <!-- Trees section -->
     <div class="w-full md:w-3/5 mb-6 md:mb-0">
         <h2 class="text-2xl font-bold mb-4 text-center">Choose Your Trees 🌳</h2>
-        <div id="tree-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <div id="tree-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div id="loading-spinner" class="col-span-full flex justify-center items-center py-10 hidden">
+            <span class="loading loading-dots loading-lg text-green-700"></span>
+          </div>
+        </div>
     </div>
     
     <!-- Cart section -->
@@ -192,6 +196,7 @@
     </div>
   </dialog>
 </section>
+
        <!-- footer---- -->
        <footer class="bg-green-900 text-white py-6">
         <div class="container mx-auto text-center">
